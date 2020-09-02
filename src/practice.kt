@@ -1,7 +1,7 @@
 fun main() {
     val choices = arrayOf("Rock","Paper","Scissors")
-    val gameChoice = getGameChoice(choices)
-    val userChoice = getUserChoice(choices)
+    val gameChoice = getGameChoice(choices).capitalize()
+    val userChoice = getUserChoice(choices).capitalize()
     /*println(getGameChoice(choices))*/
     /*for ((index,x) in choices.withIndex()) {
         val indexed = index+1
@@ -27,7 +27,7 @@ fun getUserChoice(choices:Array<String>):String {
         //user input
     val userInput = readLine()
         //user input validation
-        if(userInput != null && userInput in choices){
+        if(userInput != null && userInput.capitalize() in choices){
             isValidChoice = true
             userChoice = userInput
         }else{
@@ -39,7 +39,7 @@ fun getUserChoice(choices:Array<String>):String {
 
 fun printResult(userChoice:String,gameChoice:String):String{
 
-    return if(userChoice == gameChoice) "$gameChoice is same with $userChoice.tie"
+    return if(userChoice == gameChoice) "$gameChoice ties $userChoice. It's a Draw"
     else if ((userChoice == "Rock" && gameChoice == "Scissors")||
             (userChoice == "Paper" && gameChoice == "Rock")||
             (userChoice == "Scissors" && gameChoice == "Paper")) "$userChoice beats $gameChoice. You Win"
